@@ -8,7 +8,7 @@ if (!isset($_SESSION['username'])) {
 include "koneksi.php";
 
 if (!isset($_GET['id'])) {
-    echo "<script>window.location.href='home.php';</script>";
+    echo "<script>window.location.href='index.php';</script>";
     exit;
 }
 
@@ -31,7 +31,7 @@ if (isset($_POST['simpan'])) {
         $sql = "UPDATE products SET name='$name', price='$price', stock='$stock', description='$description' WHERE id='$id'";
         $query = mysqli_query($koneksi, $sql);
         if ($query) {
-            echo "<script>window.location.href='home.php';</script>";
+            echo "<script>window.location.href='index.php';</script>";
             exit;
         }
     } else {
@@ -41,7 +41,7 @@ if (isset($_POST['simpan'])) {
                 $sql = "UPDATE products SET name='$name', price='$price', stock='$stock', description='$description', image='$nama_gambar' WHERE id='$id'";
                 $query = mysqli_query($koneksi, $sql);
                 if ($query) {
-                    echo "<script>window.location.href='home.php';</script>";
+                    echo "<script>window.location.href='index.php';</script>";
                     exit;
                 }
             } else {
@@ -59,7 +59,7 @@ $query = mysqli_query($koneksi, $sql);
 $data = mysqli_fetch_array($query);
 
 if (!$data) {
-    echo "<script>window.location.href='home.php';</script>";
+    echo "<script>window.location.href='index.php';</script>";
     exit;
 }
 ?>
@@ -165,7 +165,7 @@ if (!$data) {
         <div class="nav-content">
             <div>Online-Shop (<?= htmlspecialchars($_SESSION['username']); ?>)</div>
             <div>
-                <a href="home.php">Produk</a>
+                <a href="index.php">Produk</a>
                 <a href="logout.php" onclick="return confirm('Yakin ingin keluar?')">Logout</a>
             </div>
         </div>
@@ -213,7 +213,7 @@ if (!$data) {
 
             <div class="btn-container">
                 <button type="submit" name="simpan" class="btn btn-save">Ubah</button>
-                <a href="home.php" class="btn btn-cancel">Batal</a>
+                <a href="index.php" class="btn btn-cancel">Batal</a>
             </div>
 
         </form>

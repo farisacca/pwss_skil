@@ -141,7 +141,7 @@ session_start()
             $_SESSION['name'] = $data['name'];
             
             // Mengarahkan ke halaman home / produk sesuai tujuan guru
-            header("location: home.php"); 
+            header("location: index.php"); 
             exit;
         } else {
             echo "<p style='color: red;'>Login anda gagal, username atau password salah!</p>";

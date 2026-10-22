@@ -6,7 +6,7 @@ if(isset($_GET['id'])){
     $query = mysqli_query($koneksi, $sql);
     if($query){
         echo "Data dengan id $id berhasil dihapus";
-        header("location:home.php");
+        header("location:index.php");
     }else{
         echo "Data gagal dihapus";
     }

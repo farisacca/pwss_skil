@@ -140,7 +140,7 @@ $total_data = mysqli_num_rows($query);
         <div class="nav-content">
             <div>Online-Shop <?= htmlspecialchars($_SESSION['name'] ?? $_SESSION['username']); ?></div>
             <div>
-                <a href="home.php">Produk</a>
+                <a href="index.php">Produk</a>
                 <a href="logout.php" onclick="return confirm('Yakin ingin keluar?')">Logout</a>
             </div>
         </div>
@@ -171,11 +171,12 @@ $total_data = mysqli_num_rows($query);
                 <th>PRODUK</th>
                 <th>JUMLAH</th>
                 <th>HARGA</th>
+                <th>DESKRIPSI</th>
                 <th>FOTO</th>
                 <th>AKSI</th>
             </tr>
 
-           <?php
+            <?php
             if ($total_data > 0) {
                 $no = 1;
                 while ($row = mysqli_fetch_array($query)) {
@@ -185,9 +186,10 @@ $total_data = mysqli_num_rows($query);
                 <td><?= htmlspecialchars($row['name']); ?></td>
                 <td><?= htmlspecialchars($row['stock']); ?></td>
                 <td>Rp. <?= number_format($row['price'], 0, ',', '.'); ?></td>
+                <td><?= htmlspecialchars($row['description']); ?></td>
                 <td>
                     <?php if (!empty($row['image'])) : ?>
-                        <!-- Sesuaikan folder gambar (img atau image) -->
+                
                         <img class="product-img" src="image/<?= htmlspecialchars($row['image']); ?>" alt="Foto Produk">
                     <?php else: ?>
                         <span>Tidak ada foto</span>

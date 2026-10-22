@@ -4,7 +4,7 @@ if (!isset($_SESSION['username'])) {
     header("location: index.php");
     exit;
 }
-include "koneksi.php"; // Sesuaikan jalur koneksi jika di dalam folder
+include "koneksi.php"; 
 ?>
 
 <!DOCTYPE html>
@@ -139,6 +139,11 @@ include "koneksi.php"; // Sesuaikan jalur koneksi jika di dalam folder
             </div>
 
             <div class="form-group">
+                <label for="form-deskripsi">Deskripsi</label>
+                <input type="text" name="deskripsi" required>
+            </div>
+
+            <div class="form-group">
                 <label>Foto Produk</label>
                 <input type="file" name="image" accept="image/*" required>
             </div>
@@ -163,15 +168,15 @@ include "koneksi.php"; // Sesuaikan jalur koneksi jika di dalam folder
             $folder      = 'image/';
 
             if (move_uploaded_file($lokasi_tmp, $folder . $nama_gambar)) {
-                // Masukkan data ke tabel 'products' dengan kolom (name, price, stock, description, image)
+            
                 $sql = "INSERT INTO products (name, price, stock, description, image) 
                         VALUES ('$nama_produk', '$harga', '$jumlah', '-', '$nama_gambar')";
                 
                 $query = mysqli_query($koneksi, $sql);
 
                 if ($query) {
-                    // Jika berhasil, langsung arahkan ke halaman home.php tanpa alert
-                    header("location: home.php");
+                    
+                    header("location: index.php");
                     exit;
                 } else {
                     echo "<p style='color: red; margin-top: 15px;'>Gagal menyimpan ke database: " . mysqli_error($koneksi) . "</p>";
