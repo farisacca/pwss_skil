@@ -196,8 +196,9 @@ $total_data = mysqli_num_rows($query);
                     <?php endif; ?>
                 </td>
                 <td>
-                    <a href="edit.php?id=<?= $row['id']; ?>" class="btn btn-edit">Edit</a>
                     <a href="hapus.php?id=<?= $row['id']; ?>" class="btn btn-danger" onclick="return confirm('Yakin ingin menghapus produk ini?')">Hapus</a>
+                    <a href="edit.php?id=<?= $row['id']; ?>" class="btn btn-edit">Edit</a>
+                    
                 </td>
             </tr>
             <?php 
